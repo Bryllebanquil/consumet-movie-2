@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: moviestream
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NEXT_PUBLIC_TMDB_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_TMDB_API_URL
+        value: https://api.themoviedb.org/3
+      - key: NEXT_PUBLIC_TMDB_IMAGE_URL
+        value: https://image.tmdb.org/t/p
+      - key: NEXT_PUBLIC_VIDSRC_BASE_URL
+        value: https://vidsrc.to/embed
+    healthCheckPath: /
+    autoDeploy: true
