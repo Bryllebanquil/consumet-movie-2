@@ -1,117 +1,239 @@
-<<<<<<< HEAD
-# MovieStream - Movie & TV Show Streaming Platform
+# MovieStream - Netflix-Style Streaming Platform
 
-A modern movie and TV show streaming web application built with Next.js, TypeScript, and Tailwind CSS. This project uses the TMDb API for movie and TV show data, and VidSrc for streaming content.
+A modern streaming platform built with Next.js, TypeScript, and Tailwind CSS, featuring a Netflix-like user interface.
 
-## Features
-
-- Browse trending movies and TV shows
-- View movie and TV show details
-- Watch trailers
-- Stream movies and TV shows via VidSrc
-- Responsive design for all devices
-- Search functionality
-
-## Technologies Used
-
-- [Next.js 14](https://nextjs.org/) - React framework
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [TMDb API](https://www.themoviedb.org/documentation/api) - Movie and TV show data
-- [VidSrc](https://vidsrc.to/) - Streaming service
-- [React Icons](https://react-icons.github.io/react-icons/) - Icon library
-
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18.0.0 or higher
-- A TMDb API key (get one at [themoviedb.org](https://www.themoviedb.org/))
+- Node.js 18+ (LTS recommended)
+- npm or yarn
+- Git
 
 ### Installation
 
 1. Clone the repository:
-
 ```bash
 git clone https://github.com/yourusername/moviestream.git
 cd moviestream
 ```
 
 2. Install dependencies:
-
 ```bash
 npm install
+# or
+yarn install
 ```
 
-3. Create a `.env.local` file in the root directory and add your TMDb API key:
+3. Create a `.env.local` file in the root directory:
+```env
+# TMDB API Configuration (Required)
+NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
 
+# API Base URLs (Optional - already configured in the code)
+NEXT_PUBLIC_TMDB_BASE_URL=https://api.themoviedb.org/3
+NEXT_PUBLIC_JIKAN_BASE_URL=https://api.jikan.moe/v4
+NEXT_PUBLIC_CONSUMET_BASE_URL=https://api.consumet.org
 ```
-NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key
-NEXT_PUBLIC_TMDB_API_URL=https://api.themoviedb.org/3
-NEXT_PUBLIC_TMDB_IMAGE_URL=https://image.tmdb.org/t/p
-NEXT_PUBLIC_VIDSRC_BASE_URL=https://vidsrc.to/embed
-```
 
-4. Run the development server:
+4. Get your TMDB API key:
+   - Go to [TMDB website](https://www.themoviedb.org/)
+   - Create an account
+   - Go to Settings > API
+   - Generate an API key
 
+### Development
+
+Run the development server:
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Project Structure
+### Production Build
+
+Build for production:
+```bash
+npm run build
+npm start
+# or
+yarn build
+yarn start
+```
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: React Hooks
+- **APIs**:
+  - TMDB (Movies & TV Shows)
+  - Jikan (Anime)
+  - Consumet (Streaming)
+
+## 📦 Project Structure
 
 ```
+moviestream/
 ├── src/
-│   ├── app/                    # Next.js app directory
-│   │   ├── movies/[id]/        # Movie details page
-│   │   ├── tv/[id]/            # TV show details page
-│   │   ├── search/             # Search page
-│   │   ├── watch/              # Video player page
-│   │   ├── globals.css         # Global styles
-│   │   ├── layout.tsx          # Root layout
-│   │   └── page.tsx            # Home page
-│   ├── components/             # React components
-│   │   ├── Header.tsx          # Navigation header
-│   │   ├── HeroSection.tsx     # Hero section component
-│   │   ├── MediaGrid.tsx       # Grid for movies/TV shows
-│   │   ├── MovieCard.tsx       # Movie/TV show card
-│   │   └── SearchBar.tsx       # Search input component
-│   └── lib/                    # Utility functions
-│       ├── api.ts              # API utility functions
-│       └── types.ts            # TypeScript types
-├── public/                     # Static assets
-├── tailwind.config.js          # Tailwind CSS configuration
-└── next.config.js              # Next.js configuration
+│   ├── app/           # Next.js 14 app directory
+│   ├── components/    # Reusable components
+│   └── lib/          # Utilities and API functions
+├── public/           # Static assets
+└── ...config files
 ```
 
-## Disclaimer
+## 🔑 Environment Variables
 
-This project is for educational purposes only. All content is sourced from TMDb API and VidSrc, which aggregate data from various sources. Please respect copyright laws and only use this for personal and non-commercial purposes.
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_TMDB_API_KEY` | TMDB API Key | Yes |
+| `NEXT_PUBLIC_TMDB_BASE_URL` | TMDB API Base URL | No |
+| `NEXT_PUBLIC_JIKAN_BASE_URL` | Jikan API Base URL | No |
+| `NEXT_PUBLIC_CONSUMET_BASE_URL` | Consumet API Base URL | No |
 
-## Deployment to Render
+## 🎨 Features
 
-1. Create a new account on [Render](https://render.com) if you haven't already.
+- Netflix-like UI/UX
+- Responsive design
+- Movie and TV show streaming
+- Anime and manga browsing
+- Search functionality
+- Dynamic routing
+- Smooth animations
+- Video player integration
 
-2. Fork this repository to your GitHub account.
+## 📱 Responsive Design
 
-3. In the Render dashboard:
-   - Click "New +" and select "Web Service"
-   - Connect your GitHub repository
-   - Select the branch you want to deploy
-   - Render will automatically detect the configuration from `render.yaml`
+The application is fully responsive and works on:
+- Desktop
+- Tablet
+- Mobile devices
 
-4. Configure environment variables:
-   - In the Render dashboard, go to your web service
-   - Add the required environment variables, especially `NEXT_PUBLIC_TMDB_API_KEY`
+## 🤝 Contributing
 
-5. Deploy:
-   - Render will automatically build and deploy your application
-   - Once deployed, you can access your site at the provided Render URL
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a pull request
 
-## License
+## 📄 License
 
-MIT
-"# consumet-movie-2" 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [TMDB](https://www.themoviedb.org/) for their comprehensive movie and TV show database
+- [Jikan](https://jikan.moe/) for the Anime and Manga data
+- [Consumet](https://consumet.org/) for streaming capabilities
+- Netflix for UI/UX inspiration
+
+## ⚠️ Important Notes
+
+- This is a demo project and not intended for commercial use
+- Please ensure you comply with TMDB's terms of service when using their API
+- Some features might require additional configuration or API keys
+
+## 📥 Download and Setup
+
+### Method 1: Direct Download
+1. Go to the GitHub repository
+2. Click the green "Code" button
+3. Select "Download ZIP"
+4. Extract the ZIP file to your desired location
+5. Open a terminal in the extracted folder
+
+### Method 2: Git Clone (Recommended)
+```bash
+# Using HTTPS
+git clone https://github.com/yourusername/moviestream.git
+
+# Using SSH
+git clone git@github.com:yourusername/moviestream.git
+
+# Using GitHub CLI
+gh repo clone yourusername/moviestream
+```
+
+### After Download
+1. Navigate to the project directory:
+```bash
+cd moviestream
+```
+
+2. Install all dependencies:
+```bash
+# Using npm
+npm install
+
+# Using yarn
+yarn install
+
+# Using pnpm
+pnpm install
+```
+
+3. Set up environment variables:
+```bash
+# Create .env.local file
+cp .env.example .env.local  # If .env.example exists
+# OR create it manually
+touch .env.local
+```
+
+4. Add required environment variables to `.env.local`:
+```env
+# Required
+NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
+
+# Optional - Default values are already configured
+NEXT_PUBLIC_TMDB_BASE_URL=https://api.themoviedb.org/3
+NEXT_PUBLIC_JIKAN_BASE_URL=https://api.jikan.moe/v4
+NEXT_PUBLIC_CONSUMET_BASE_URL=https://api.consumet.org
+```
+
+5. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+### Troubleshooting Common Download Issues
+
+1. **Git Clone Error**
+   - Ensure you have Git installed: `git --version`
+   - Check your GitHub credentials
+   - Try using HTTPS if SSH isn't configured
+
+2. **Dependencies Installation Error**
+   - Clear npm cache: `npm cache clean --force`
+   - Delete `node_modules` and `package-lock.json`: 
+     ```bash
+     rm -rf node_modules package-lock.json
+     npm install
+     ```
+
+3. **Port Already in Use**
+   - Change the port:
+     ```bash
+     npm run dev -- -p 3001
+     # or
+     yarn dev -p 3001
+     ```
+
+4. **Node Version Error**
+   - Install correct Node.js version (18+)
+   - Use nvm to manage Node.js versions:
+     ```bash
+     nvm install 18
+     nvm use 18
+     ```
 "# consumet-movie-2" 
